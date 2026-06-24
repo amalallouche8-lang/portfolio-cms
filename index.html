@@ -1,1 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#16100a;}
+  :root{
+    --page-bg:#d9c6a3; --page-bg2:#cdb88f; --ink:#2b2016; --soft:#6e5a40;
+    --panel-bg:#241b13; --panel-ink:#efe6d6; --panel-soft:#a08a6f;
+    --accent:#9b5f31; --gold:#c2a068; --olive:#77773f;
+    --line:rgba(43,32,22,.22); --line-d:rgba(239,230,214,.18);
+  }
+  [data-theme="espresso"]{
+    --page-bg:#2a2016; --page-bg2:#33271a; --ink:#efe6d6; --soft:#b39d80;
+    --panel-bg:#16100a; --panel-ink:#efe6d6; --panel-soft:#b39d80;
+    --accent:#cf9d5e; --gold:#dcbb84; --olive:#9a9a55;
+    --line:rgba(239,230,214,.16); --line-d:rgba(239,230,214,.16);
+  }
+  [data-theme="olive"]{
+    --page-bg:#cfc8a0; --page-bg2:#c3bb8f; --ink:#2b2c18; --soft:#5f603c;
+    --panel-bg:#33361d; --panel-ink:#eef0d8; --panel-soft:#a3a579;
+    --accent:#8a7a3a; --gold:#c4b06a; --olive:#5c5e30;
+    --line:rgba(43,44,24,.22); --line-d:rgba(238,240,216,.18);
+  }
+  [data-theme="green"]{
+    --page-bg:#11271a; --page-bg2:#143020; --ink:#e8dcc8; --soft:#9c8b6f;
+    --panel-bg:#091a0e; --panel-ink:#e8dcc8; --panel-soft:#9c8b6f;
+    --accent:#c9a96e; --gold:#c9a96e; --olive:#5f6b3a;
+    --line:rgba(201,169,110,.2); --line-d:rgba(201,169,110,.18);
+  }
+  @keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+  @keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(18px)}}
+  @keyframes floatC{0%,100%{transform:translate(0,0)}50%{transform:translate(-14px,-16px)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  @keyframes kb{0%,100%{transform:scale(1.02)}50%{transform:scale(1.09)}}
+  @keyframes orbit{0%{transform:translate(0,0) scale(1)}25%{transform:translate(48px,-36px) scale(1.06)}50%{transform:translate(14px,-70px) scale(1)}75%{transform:translate(-36px,-26px) scale(.94)}100%{transform:translate(0,0) scale(1)}}
+  @keyframes orbit2{0%{transform:translate(0,0) scale(1)}25%{transform:translate(-56px,34px) scale(1.05)}50%{transform:translate(-18px,78px) scale(1)}75%{transform:translate(46px,32px) scale(.95)}100%{transform:translate(0,0) scale(1)}}
+  @keyframes orbit3{0%{transform:translate(0,0) scale(1)}33%{transform:translate(54px,42px) scale(1.05)}66%{transform:translate(-44px,22px) scale(.96)}100%{transform:translate(0,0) scale(1)}}
+  @keyframes revUp{0%{opacity:0;transform:translateY(70px)}100%{opacity:1;transform:translateY(0)}}
+  @keyframes scrollv{to{transform:translateY(-50%)}}
+  .oyl-word{opacity:1;}
+</style>
+</helmet>
 
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#241b13"/>
+    <circle cx="50" cy="44" r="20" fill="none" stroke="#c2a068" stroke-width="2"/>
+    <ellipse cx="50" cy="44" rx="6" ry="20" fill="none" stroke="#c2a068" stroke-width="2"/>
+    <ellipse cx="50" cy="44" rx="20" ry="6" fill="none" stroke="#c2a068" stroke-width="2"/>
+    <circle cx="50" cy="44" r="2.5" fill="#c2a068"/>
+    <text x="50" y="78" text-anchor="middle" fill="#efe6d6" font-family="Arial" font-size="9" font-weight="700" letter-spacing="1">AMALLITAAH</text>
+  </svg>
+</template>
+<div data-theme="{{ theme }}" style="width:100%;height:100%;">
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+  <!-- ░░ 00 — OWN YOUR LIFE (INTRO TRANSITION) ░░ -->
+  <section data-label="Own Your Life" data-screen-label="Own Your Life" data-speaker-notes="The philosophy behind everything I make — own your life." style="position:relative;width:100%;height:100%;overflow:hidden;background:var(--panel-bg);color:var(--panel-ink);font-family:'Archivo',sans-serif;display:flex;align-items:center;justify-content:center;">
+    <div style="position:absolute;left:62px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--panel-soft);z-index:4;">The Internal Studio</div>
+    <div style="position:absolute;top:56px;right:118px;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--panel-soft);z-index:4;">The Philosophy</div>
+
+    <!-- big orbiting olive sphere behind type -->
+    <div style="position:absolute;left:-150px;bottom:-170px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 30%, var(--olive)), var(--olive) 72%);opacity:.55;animation:orbit3 24s ease-in-out infinite;z-index:1;"></div>
+    <div style="position:absolute;right:14%;bottom:16%;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 34%, var(--accent)), var(--accent) 74%);animation:orbit2 16s ease-in-out infinite;z-index:1;"></div>
+
+    <!-- vertical marquee strip -->
+    <div style="position:absolute;right:70px;top:0;bottom:0;width:30px;overflow:hidden;z-index:4;">
+      <div style="position:absolute;top:0;left:0;writing-mode:vertical-rl;font-size:15px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);font-weight:600;animation:scrollv 22s linear infinite;">OWN YOUR LIFE &nbsp;&middot;&nbsp; OWN YOUR LIFE &nbsp;&middot;&nbsp; OWN YOUR LIFE &nbsp;&middot;&nbsp; OWN YOUR LIFE &nbsp;&middot;&nbsp; OWN YOUR LIFE &nbsp;&middot;&nbsp; OWN YOUR LIFE &nbsp;&middot;&nbsp;</div>
+    </div>
+
+    <div style="position:relative;z-index:3;text-align:center;mix-blend-mode:normal;">
+      <p style="font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin:0 0 30px;font-weight:600;">The philosophy behind the work</p>
+      <h1 style="font-weight:700;font-size:200px;line-height:.82;letter-spacing:-8px;margin:0;color:var(--panel-ink);text-transform:uppercase;">
+        <span class="oyl-word" style="display:block;">Own</span>
+        <span class="oyl-word" style="display:block;">Your</span>
+        <span class="oyl-word" style="display:block;color:var(--olive);">Life</span>
+      </h1>
+    </div>
+
+    <div style="position:absolute;bottom:54px;left:118px;font-weight:700;font-size:150px;line-height:.8;color:var(--accent);opacity:.18;z-index:2;">00</div>
+  </section>
+
+  <!-- ░░ 01 — COVER ░░ -->
+  <section data-label="Cover" data-screen-label="Cover" data-speaker-notes="Amallitaah — marketeer, content creator and digital strategist." style="position:relative;width:100%;height:100%;overflow:hidden;background:var(--panel-bg);color:var(--panel-ink);font-family:'Archivo',sans-serif;">
+    <div style="position:absolute;left:62px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--panel-soft);">The Internal Studio</div>
+
+    <div style="position:absolute;top:56px;left:118px;right:118px;display:flex;justify-content:space-between;align-items:center;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <svg viewBox="0 0 280 280" width="42" height="42" style="display:block;color:var(--gold);overflow:visible;">
+          <g style="transform-origin:140px 140px;animation:spin 90s linear infinite;">
+            <circle cx="140" cy="140" r="124" fill="none" stroke="currentColor" stroke-width="3" opacity="0.9"/>
+            <circle cx="140" cy="16" r="6" fill="currentColor"/><circle cx="140" cy="264" r="6" fill="currentColor"/>
+            <circle cx="16" cy="140" r="6" fill="currentColor"/><circle cx="264" cy="140" r="6" fill="currentColor"/>
+          </g>
+          <ellipse cx="140" cy="140" rx="34" ry="92" fill="none" stroke="currentColor" stroke-width="3"/>
+          <ellipse cx="140" cy="140" rx="92" ry="34" fill="none" stroke="currentColor" stroke-width="3"/>
+          <circle cx="140" cy="140" r="9" fill="currentColor"/>
+        </svg>
+        <span style="font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--panel-soft);">Personal Marketing Portfolio</span>
+      </div>
+      <span style="font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--panel-soft);">Portfolio 2026</span>
+    </div>
+
+    <div style="position:absolute;left:118px;top:50%;transform:translateY(-50%);">
+      <h1 class="cover-title" style="font-weight:700;font-size:236px;line-height:.84;letter-spacing:-10px;margin:0;color:var(--panel-ink);">AMALLI<br>TAAH</h1>
+      <p class="cover-sub" style="display:flex;gap:54px;margin:48px 0 0;font-size:15px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);font-weight:500;"><span>Marketeer</span><span>Content</span><span>Strategy</span></p>
+    </div>
+
+    <div style="position:absolute;bottom:54px;right:118px;font-weight:700;font-size:150px;line-height:.8;color:var(--accent);opacity:.22;">01</div>
+    <div style="position:absolute;top:28%;right:13%;width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 34%, var(--olive)), var(--olive) 72%);box-shadow:0 24px 60px rgba(0,0,0,.28);animation:orbit 15s ease-in-out infinite;"></div>
+  </section>
+
+  <!-- ░░ 02 — THE MARKETEER ░░ -->
+  <section data-label="The Marketeer" data-screen-label="The Marketeer" data-speaker-notes="The person behind the work — behaviour-led, not template-led." style="position:relative;width:100%;height:100%;overflow:hidden;background:var(--page-bg);color:var(--ink);font-family:'Archivo',sans-serif;display:flex;align-items:center;padding:0 118px;gap:96px;">
+    <div style="position:absolute;left:62px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--soft);">The Marketeer</div>
+    <div style="position:absolute;top:48px;right:118px;font-weight:700;font-size:130px;line-height:.8;color:var(--accent);opacity:.18;">02</div>
+
+    <div style="flex:1;max-width:720px;z-index:2;">
+      <p style="font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin:0 0 26px;font-weight:600;">The Marketeer</p>
+      <h2 style="font-weight:700;font-size:104px;line-height:.92;letter-spacing:-4px;margin:0 0 40px;text-transform:uppercase;">The<br>Marketeer</h2>
+      <p style="font-size:25px;line-height:1.6;font-weight:300;color:var(--ink);max-width:600px;margin:0;">I build attention from nothing, by understanding the one thing every brand needs: <span style="color:var(--accent);font-weight:500;">human behaviour.</span></p>
+
+      <div style="display:flex;gap:64px;margin-top:58px;">
+        <div><p style="font-weight:700;font-size:56px;color:var(--accent);margin:0;line-height:1;">211</p><p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--soft);margin:12px 0 0;font-weight:500;">Community</p></div>
+        <div><p style="font-weight:700;font-size:56px;color:var(--accent);margin:0;line-height:1;">3</p><p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--soft);margin:12px 0 0;font-weight:500;">Platforms</p></div>
+        <div><p style="font-weight:700;font-size:56px;color:var(--accent);margin:0;line-height:1;">100+</p><p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--soft);margin:12px 0 0;font-weight:500;">Pieces created</p></div>
+      </div>
+    </div>
+
+    <div style="position:relative;flex:0 0 500px;height:720px;align-self:center;z-index:2;animation:floatA 12s ease-in-out infinite;">
+      <div style="position:absolute;inset:-16px;border:1px solid var(--accent);opacity:.45;transform:rotate(-2.5deg);"></div>
+      <div style="position:relative;width:500px;height:720px;overflow:hidden;transform:rotate(2deg);box-shadow:0 30px 60px rgba(0,0,0,.18);">
+        <img src="assets/portrait.jpeg" alt="Amallitaah" style="width:100%;height:100%;object-fit:cover;object-position:52% 16%;display:block;animation:kb 18s ease-in-out infinite;"/>
+      </div>
+      <div style="position:absolute;left:-46px;bottom:50px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--soft);">Amallitaah 2026</div>
+      <div style="position:absolute;left:-40px;bottom:-30px;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 34%, var(--olive)), var(--olive) 72%);box-shadow:0 24px 60px rgba(0,0,0,.22);animation:orbit2 16s ease-in-out infinite;"></div>
+    </div>
+  </section>
+
+  <!-- ░░ 03 — ABOUT ░░ -->
+  <section data-label="About" data-screen-label="About" data-speaker-notes="Self-taught, behaviour-led. Less talk." style="position:relative;width:100%;height:100%;overflow:hidden;background:var(--panel-bg);color:var(--panel-ink);font-family:'Archivo',sans-serif;display:flex;align-items:center;padding:0 118px;">
+    <div style="position:absolute;left:62px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--panel-soft);">About</div>
+    <div style="position:absolute;top:48px;right:118px;font-weight:700;font-size:130px;line-height:.8;color:var(--gold);opacity:.16;">03</div>
+
+    <div style="max-width:1180px;z-index:2;">
+      <p style="font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin:0 0 34px;font-weight:600;">A bit about me</p>
+      <p style="font-weight:300;font-size:62px;line-height:1.18;letter-spacing:-1.5px;margin:0;color:var(--panel-ink);max-width:1080px;"><span style="float:left;font-weight:700;font-size:150px;line-height:.74;margin:14px 24px 0 0;color:var(--gold);">I</span> learned marketing by living it, reading, creating, testing, failing. I'm studying marketing while building a brand from zero, and I know what works and what <span style="color:var(--gold);">doesn't.</span></p>
+    </div>
+
+    <div style="position:absolute;right:16%;bottom:16%;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 34%, var(--olive)), var(--olive) 72%);box-shadow:0 24px 60px rgba(0,0,0,.22);animation:orbit3 17s ease-in-out infinite;"></div>
+  </section>
+
+  <!-- ░░ 04 — WHAT I DO ░░ -->
+  <section data-label="What I Do" data-screen-label="What I Do" data-speaker-notes="Three roles, one instinct." style="position:relative;width:100%;height:100%;overflow:hidden;background:var(--page-bg);color:var(--ink);font-family:'Archivo',sans-serif;display:flex;flex-direction:column;justify-content:center;padding:0 118px;">
+    <div style="position:absolute;left:62px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--soft);">What I Do</div>
+    <div style="position:absolute;top:48px;right:118px;font-weight:700;font-size:130px;line-height:.8;color:var(--accent);opacity:.16;">04</div>
+
+    <p style="font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin:0 0 24px;font-weight:600;">What I do</p>
+    <h2 style="font-weight:700;font-size:80px;line-height:.94;letter-spacing:-3px;margin:0 0 70px;text-transform:uppercase;max-width:1000px;">Three roles,<br>one instinct</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:56px;padding-top:8px;">
+      <div>
+        <p style="font-weight:700;font-size:30px;color:var(--olive);margin:0 0 22px;">01</p>
+        <h3 style="font-weight:600;font-size:27px;text-transform:uppercase;letter-spacing:-.5px;margin:0 0 16px;">Social Media Marketing</h3>
+        <p style="font-size:18px;line-height:1.6;font-weight:300;color:var(--soft);margin:0;">Growing real audiences across TikTok, Instagram &amp; Pinterest.</p>
+      </div>
+      <div>
+        <p style="font-weight:700;font-size:30px;color:var(--olive);margin:0 0 22px;">02</p>
+        <h3 style="font-weight:600;font-size:27px;text-transform:uppercase;letter-spacing:-.5px;margin:0 0 16px;">Content Creator</h3>
+        <p style="font-size:18px;line-height:1.6;font-weight:300;color:var(--soft);margin:0;">Psychology-led short-form video with a clear voice.</p>
+      </div>
+      <div>
+        <p style="font-weight:700;font-size:30px;color:var(--olive);margin:0 0 22px;">03</p>
+        <h3 style="font-weight:600;font-size:27px;text-transform:uppercase;letter-spacing:-.5px;margin:0 0 16px;">Digital Marketer</h3>
+        <p style="font-size:18px;line-height:1.6;font-weight:300;color:var(--soft);margin:0;">Affiliate, positioning &amp; the right message at the right moment.</p>
+      </div>
+    </div>
+
+    <div style="position:absolute;left:42%;bottom:10%;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 34%, var(--olive)), var(--olive) 72%);box-shadow:0 24px 60px rgba(0,0,0,.22);animation:orbit 18s ease-in-out infinite;"></div>
+  </section>
+
+  <!-- ░░ 05 — MY WORK ░░ -->
+  <section data-label="My Work" data-screen-label="My Work" data-speaker-notes="Selected work — drag your own images into each slot." style="position:relative;width:100%;height:100%;overflow:hidden;background:var(--panel-bg);color:var(--panel-ink);font-family:'Archivo',sans-serif;display:flex;flex-direction:column;justify-content:center;padding:0 118px;">
+    <div style="position:absolute;left:62px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--panel-soft);">Selected Work</div>
+    <div style="position:absolute;top:48px;right:118px;font-weight:700;font-size:130px;line-height:.8;color:var(--gold);opacity:.14;">05</div>
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;">
+      <div>
+        <p style="font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin:0 0 22px;font-weight:600;">Selected work</p>
+        <h2 style="font-weight:700;font-size:80px;line-height:.92;letter-spacing:-3px;margin:0;text-transform:uppercase;">My Work</h2>
+      </div>
+      <p style="font-size:16px;font-weight:300;color:var(--panel-soft);max-width:300px;text-align:right;margin:0;">Where strategy, content and growth meet.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div>
+        <div style="position:relative;width:100%;height:430px;overflow:hidden;border:1px solid var(--line-d);">
+          <img src="assets/work-tiktok.jpg" alt="TikTok content" style="width:100%;height:100%;object-fit:cover;object-position:center 26%;display:block;animation:kb 20s ease-in-out infinite;"/>
+        </div>
+        <p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--olive);margin:22px 0 8px;font-weight:600;">Content &middot; TikTok</p>
+        <h3 style="font-weight:600;font-size:22px;margin:0 0 6px;text-transform:uppercase;letter-spacing:-.3px;">@byamalitaah</h3>
+        <p style="font-size:15px;font-weight:300;color:var(--panel-soft);margin:0;">Psychology-led short-form, up to 2K+ views.</p>
+      </div>
+      <div>
+        <div style="position:relative;width:100%;height:430px;overflow:hidden;border:1px solid var(--line-d);">
+          <img src="assets/work-pinterest.jpg" alt="Pinterest strategy" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;animation:kb 22s ease-in-out infinite;"/>
+        </div>
+        <p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--olive);margin:22px 0 8px;font-weight:600;">Affiliate &middot; Pinterest</p>
+        <h3 style="font-weight:600;font-size:22px;margin:0 0 6px;text-transform:uppercase;letter-spacing:-.3px;">Pinterest Strategy</h3>
+        <p style="font-size:15px;font-weight:300;color:var(--panel-soft);margin:0;">752 followers &middot; 3.8M monthly views.</p>
+      </div>
+      <div>
+        <div style="position:relative;width:100%;height:430px;overflow:hidden;border:1px dashed var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;">
+          <div style="width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 34%, var(--olive)), var(--olive) 72%);animation:orbit3 14s ease-in-out infinite;"></div>
+          <p style="font-weight:700;font-size:36px;letter-spacing:-1.5px;text-transform:uppercase;color:var(--panel-ink);margin:0;text-align:center;">Next<br>Project</p>
+          <p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin:0;">Coming soon</p>
+        </div>
+        <p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--olive);margin:22px 0 8px;font-weight:600;">Hospitality</p>
+        <h3 style="font-weight:600;font-size:22px;margin:0 0 6px;text-transform:uppercase;letter-spacing:-.3px;">Restaurant Campaign</h3>
+        <p style="font-size:15px;font-weight:300;color:var(--panel-soft);margin:0;">In the works &mdash; first hospitality client.</p>
+      </div>
+      <div>
+        <div style="position:relative;width:100%;height:430px;overflow:hidden;border:1px solid var(--line-d);">
+          <img src="assets/work-website.png" alt="The Internal website" style="width:100%;height:100%;object-fit:cover;object-position:5% 50%;display:block;animation:kb 24s ease-in-out infinite;"/>
+        </div>
+        <p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--olive);margin:22px 0 8px;font-weight:600;">Personal Brand</p>
+        <h3 style="font-weight:600;font-size:22px;margin:0 0 6px;text-transform:uppercase;letter-spacing:-.3px;">The Internal</h3>
+        <p style="font-size:15px;font-weight:300;color:var(--panel-soft);margin:0;">theinternal.studio &mdash; built from zero.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ░░ 06 — REACH ░░ -->
+  <section data-label="Reach" data-screen-label="Reach" data-speaker-notes="Where I create — TikTok, Instagram, Pinterest. A real community of 211." style="position:relative;width:100%;height:100%;overflow:hidden;background:var(--page-bg);color:var(--ink);font-family:'Archivo',sans-serif;display:flex;flex-direction:column;justify-content:center;padding:0 118px;">
+    <div style="position:absolute;left:62px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--soft);">Reach</div>
+    <div style="position:absolute;top:48px;right:118px;font-weight:700;font-size:130px;line-height:.8;color:var(--accent);opacity:.16;">06</div>
+
+    <p style="font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin:0 0 22px;font-weight:600;">Where I create</p>
+    <div style="display:flex;align-items:flex-end;gap:36px;margin-bottom:60px;">
+      <p style="font-weight:700;font-size:200px;line-height:.78;letter-spacing:-8px;color:var(--olive);margin:0;">211</p>
+      <p style="font-size:18px;letter-spacing:4px;text-transform:uppercase;color:var(--soft);margin:0 0 24px;max-width:240px;line-height:1.5;font-weight:500;">Women inside the community</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:56px;padding-top:8px;">
+      <div>
+        <p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--olive);margin:0 0 14px;font-weight:600;">TikTok</p>
+        <h3 style="font-weight:600;font-size:28px;margin:0 0 14px;letter-spacing:-.5px;">@byamalitaah</h3>
+        <p style="font-size:17px;font-weight:300;line-height:1.6;color:var(--soft);margin:0;">Human behaviour, identity &amp; perception.</p>
+      </div>
+      <div>
+        <p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--olive);margin:0 0 14px;font-weight:600;">Instagram</p>
+        <h3 style="font-weight:600;font-size:28px;margin:0 0 14px;letter-spacing:-.5px;">@theinternal.studio</h3>
+        <p style="font-size:17px;font-weight:300;line-height:1.6;color:var(--soft);margin:0;">The home of the brand.</p>
+      </div>
+      <div>
+        <p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--olive);margin:0 0 14px;font-weight:600;">Pinterest</p>
+        <h3 style="font-weight:600;font-size:28px;margin:0 0 14px;letter-spacing:-.5px;">amallitaah</h3>
+        <p style="font-size:17px;font-weight:300;line-height:1.6;color:var(--soft);margin:0;">Here to inspire, create &amp; convert.</p>
+      </div>
+    </div>
+
+    <div style="position:absolute;right:9%;top:24%;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 34%, var(--olive)), var(--olive) 72%);box-shadow:0 24px 60px rgba(0,0,0,.22);animation:orbit3 16s ease-in-out infinite;"></div>
+  </section>
+
+  <!-- ░░ 07 — CONTACT ░░ -->
+  <section data-label="Contact" data-screen-label="Contact" data-speaker-notes="Available for collaborations and individual projects." style="position:relative;width:100%;height:100%;overflow:hidden;background:var(--panel-bg);color:var(--panel-ink);font-family:'Archivo',sans-serif;display:flex;flex-direction:column;justify-content:center;padding:0 118px;">
+    <div style="position:absolute;left:62px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--panel-soft);">Contact</div>
+    <div style="position:absolute;top:48px;right:118px;font-weight:700;font-size:130px;line-height:.8;color:var(--gold);opacity:.16;">07</div>
+
+    <p style="font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin:0 0 30px;font-weight:600;">Let's work together</p>
+    <h2 style="font-weight:700;font-size:120px;line-height:.9;letter-spacing:-5px;margin:0 0 56px;text-transform:uppercase;">Let's create<br>together</h2>
+
+    <div style="display:flex;gap:70px;flex-wrap:wrap;padding-top:8px;max-width:1300px;">
+      <div><p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--panel-soft);margin:0 0 10px;font-weight:500;">Email</p><p style="font-weight:500;font-size:24px;margin:0;color:var(--panel-ink);text-decoration:none;">amallitaah&#64;gmail.com</p></div>
+      <div><p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--panel-soft);margin:0 0 10px;font-weight:500;">Website</p><p style="font-weight:500;font-size:24px;margin:0;">theinternal.studio</p></div>
+      <div><p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--panel-soft);margin:0 0 10px;font-weight:500;">TikTok</p><p style="font-weight:500;font-size:24px;margin:0;">@byamalitaah</p></div>
+      <div><p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--panel-soft);margin:0 0 10px;font-weight:500;">Instagram</p><p style="font-weight:500;font-size:24px;margin:0;">@theinternal.studio</p></div>
+      <div><p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--panel-soft);margin:0 0 10px;font-weight:500;">Pinterest</p><p style="font-weight:500;font-size:24px;margin:0;">amallitaah</p></div>
+    </div>
+
+    <div style="position:absolute;bottom:54px;right:118px;display:flex;align-items:center;gap:16px;">
+      <svg viewBox="0 0 280 280" width="40" height="40" style="display:block;color:var(--gold);overflow:visible;">
+        <g style="transform-origin:140px 140px;animation:spin 90s linear infinite;">
+          <circle cx="140" cy="140" r="124" fill="none" stroke="currentColor" stroke-width="3" opacity="0.9"/>
+          <circle cx="140" cy="16" r="6" fill="currentColor"/><circle cx="140" cy="264" r="6" fill="currentColor"/>
+          <circle cx="16" cy="140" r="6" fill="currentColor"/><circle cx="264" cy="140" r="6" fill="currentColor"/>
+        </g>
+        <ellipse cx="140" cy="140" rx="34" ry="92" fill="none" stroke="currentColor" stroke-width="3"/>
+        <ellipse cx="140" cy="140" rx="92" ry="34" fill="none" stroke="currentColor" stroke-width="3"/>
+        <circle cx="140" cy="140" r="9" fill="currentColor"/>
+      </svg>
+      <span style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--panel-soft);">The Internal Studio</span>
+    </div>
+    <div style="position:absolute;left:34%;top:24%;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 34% 28%, color-mix(in srgb,#fff 34%, var(--olive)), var(--olive) 72%);box-shadow:0 24px 60px rgba(0,0,0,.22);animation:orbit2 18s ease-in-out infinite;"></div>
+  </section>
+
+</x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;theme&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;default&quot;: &quot;sand&quot;,
+    &quot;options&quot;: [&quot;sand&quot;, &quot;espresso&quot;, &quot;olive&quot;, &quot;green&quot;],
+    &quot;tsType&quot;: &quot;string&quot;
+  }
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const reveal = () => {
+      const words = document.querySelectorAll('.oyl-word');
+      if (!words.length) return;
+      words.forEach((w, i) => {
+        w.getAnimations().forEach(a => a.cancel());
+        w.style.opacity = '';
+        const anim = w.animate(
+          [
+            { opacity: 0, transform: 'translateY(60px) scale(1.16)' },
+            { opacity: 1, transform: 'translateY(0) scale(1)' }
+          ],
+          { duration: 460, delay: 200 + i * 460, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'both' }
+        );
+        // Safety: if the animation engine is throttled (background/offscreen),
+        // timers still fire — guarantee the resting state is visible.
+        const total = 200 + i * 460 + 460 + 150;
+        setTimeout(() => {
+          if (anim.playState !== 'finished') { w.style.opacity = '1'; w.style.transform = 'none'; }
+        }, total);
+      });
+    };
+    const glide = (el, delay) => {
+      if (!el) return;
+      el.getAnimations().forEach(a => a.cancel());
+      el.style.opacity = '';
+      const anim = el.animate(
+        [
+          { opacity: 0, transform: 'translateY(44px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ],
+        { duration: 720, delay: delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' }
+      );
+      setTimeout(() => {
+        if (anim.playState !== 'finished') { el.style.opacity = '1'; el.style.transform = 'none'; }
+      }, delay + 720 + 150);
+    };
+    const revealCover = () => {
+      glide(document.querySelector('.cover-title'), 120);
+      glide(document.querySelector('.cover-sub'), 360);
+    };
+    const attach = () => {
+      const stage = document.querySelector('deck-stage');
+      if (!stage) { setTimeout(attach, 150); return; }
+      stage.addEventListener('slidechange', (e) => {
+        if (!e.detail) return;
+        if (e.detail.index === 0) reveal();
+        else if (e.detail.index === 1) revealCover();
+      });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => setTimeout(reveal, 60));
+      } else {
+        setTimeout(reveal, 200);
+      }
+    };
+    attach();
+  }
+  renderVals() {
+    return { theme: this.props.theme ?? 'sand' };
+  }
+}
+</script>
+</body>
+</html>
